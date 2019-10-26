@@ -80,6 +80,11 @@ display: flex;
 border: 2px solid black;
 justify-content: space-between;
 }
+.progressbar{
+  display: flex;
+  border: 2px solid black;
+  background-color: aliceblue;
+}
 .knapp{
     display: flex;
     border: 2px solid black;
@@ -87,8 +92,7 @@ justify-content: space-between;
 }
 
 .progress {
-  width: 1px;
-  height: 3px;
+
   background: #006B5A;
   transition: width .1s linear;
 }
