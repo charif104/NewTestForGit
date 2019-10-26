@@ -105,6 +105,6 @@ $(".playbtn2 i ").dblclick(function(){
 //---------------------------------------------------------
 
 
-//test from laptop
+//test from station
 
 
