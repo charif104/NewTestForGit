@@ -31,10 +31,9 @@
    border: 2px solid black;
    display: flex;
    flex-direction: column; 
-   
    flex-grow: 5;
- }  
-  
+ } 
+
  .list{
      display:flex;
      justify-content: space-between;
