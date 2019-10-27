@@ -15,38 +15,60 @@
 
  let image3 = document.createElement("img");
  image3.src= "cover/eminem.jpg" ;
+
  let src = document.getElementById("boxbild");
   src.append(image1) ;
-   
+  
    
   let txt1 = $('#text1').text();
   let txt2 = $('#text2').text();
   let txt3 = $('#text3').text();
    $( "#infotext" ).append(txt1);
 
- 
-$("#playbtn i ").click(function(){
-  
 
+ if( $(".playbtn1 i ").is(":visible")){
+  $("#pause1 i").hide();
+ }
+ 
+ if( $(".playbtn2 i ").is(":visible")){
+  $("#pause2 i").hide();
+ }
+ if( $(".playbtn3 i ").is(":visible")){
+  $("#pause3 i").hide();
+ }
+
+
+
+
+$("#playbtn i ").click(function(){
 });
+
+
 //---------------------------------
  // play button 1 for the first singer 
-$(".playbtn1 i ").click(function(){
+
+ $(".playbtn1 i ").click(function(){
+ 
   $(".playbtn1 i ").hide();
-  $("#pause i").show();
+  $("#pause1 i").show();
+
   $( "#infotext" ).empty();
   $( "#infotext").append(txt1);
  
-src.empty();
-src.append(image1);
+  image3.remove();
+  image2.remove();
+  src.append(image1);
   
   x.play();
   y.pause();
   z.pause();
 });
 
-$(".playbtn1 i ").dblclick(function(){
+$("#pause1 i ").click(function(){
   x.pause();
+  $(".playbtn1 i ").show();
+  $("#pause1 i").hide();
+
 });
 
 //---------------------------------------
@@ -55,10 +77,14 @@ $(".playbtn1 i ").dblclick(function(){
 // play button 2 
 $(".playbtn2 i ").click(function(){
 
+  $(".playbtn2 i ").hide();
+  $("#pause2 i").show();
+
   $( "#infotext" ).empty();
   $( "#infotext" ).append(txt2);
 
-  src.empty();
+  image1.remove();
+  image3.remove();
   src.append(image2);
 
   y.play() ;
@@ -66,8 +92,10 @@ $(".playbtn2 i ").click(function(){
   z.pause();
 
 });
-$(".playbtn2 i ").dblclick(function(){
+$("#pause2 i ").click(function(){
   y.pause() ;
+  $(".playbtn2 i ").show();
+  $("#pause2 i").hide();
   });
 //------------------------------------------------
 
@@ -75,18 +103,25 @@ $(".playbtn2 i ").dblclick(function(){
 //play button 3 
  $(".playbtn3 i ").click(function(){
 
+  $(".playbtn3 i ").hide();
+  $("#pause3 i").show();
+
   $( "#infotext" ).empty();
   $( "#infotext" ).append(txt3);
-
-  src.empty();
+  
+  image1.remove();
+  image2.remove();
   src.append(image3);
 
   x.pause();
   y.pause();
   z.play();
 
-  $(".playbtn3 i ").dblclick(function(){
+  $("#pause3 i ").click(function(){
     z.pause() ;
+    $(".playbtn3 i ").show();
+    $("#pause3 i").hide();
+
     });
 });
 //---------------------------------------------------------
