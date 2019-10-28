@@ -79,21 +79,12 @@ display: flex;
 border: 2px solid black;
 justify-content: space-between;
 }
-.progressbar{
-  display: flex;
-  border: 2px solid black;
-  background-color: aliceblue;
-}
+
 .knapp{
     display: flex;
     border: 2px solid black;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
-.progress {
-
-  background: #006B5A;
-  transition: width .1s linear;
-}
 
 

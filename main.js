@@ -1,12 +1,20 @@
  
 
- let x = document.getElementById("Audio1");
- let y = document.getElementById("Audio2");
- let z = document.getElementById("Audio3");
+ //let x = document.getElementById("Audio1");
+  let x= document.createElement("AUDIO");
+  x.setAttribute("src","media/bac1.mp3");
 
+  let y= document.createElement("AUDIO");
+  y.setAttribute("src","media/beatles.mp3");
+
+  let z= document.createElement("AUDIO");
+  z.setAttribute("src","media/eminem.mp3");
+
+ 
 
  let image1 = document.createElement("img");
- image1.src= "cover/backstreet.jpeg" ;
+ image1.setAttribute("src","cover/backstreet.jpeg");
+    //it works with two method    //image1.src= "cover/backstreet.jpeg" ; 
  image1.style.height= '20 vh';
  image1.style.width='15vw';
 
@@ -29,102 +37,85 @@
  if( $(".playbtn1 i ").is(":visible")){
   $("#pause1 i").hide();
  }
- 
+
  if( $(".playbtn2 i ").is(":visible")){
   $("#pause2 i").hide();
  }
  if( $(".playbtn3 i ").is(":visible")){
   $("#pause3 i").hide();
  }
+ if( $(".playbtn i ").is(":visible")){
+  $("#pausebtn i").hide();
+ }
 
-
-
-
-$("#playbtn i ").click(function(){
-});
 
 
 //---------------------------------
- // play button 1 for the first singer 
+ // play button 1 for the first singer (old code )
 
- $(".playbtn1 i ").click(function(){
- 
-  $(".playbtn1 i ").hide();
-  $("#pause1 i").show();
+   $('.playbtn1 i ,#pause1 i ').click(function(){
+    $('.playbtn1 i ,#pause1 i').toggle();
+    if($("#pause1 i ").is(":visible")){
+      pausemusic(y); 
+      pausemusic(z); 
+      playmusic(x);
+      showText(txt1);
+      showImage(image1);
 
-  $( "#infotext" ).empty();
-  $( "#infotext").append(txt1);
- 
-  image3.remove();
-  image2.remove();
-  src.append(image1);
-  
-  x.play();
-  y.pause();
-  z.pause();
-});
-
-$("#pause1 i ").click(function(){
-  x.pause();
-  $(".playbtn1 i ").show();
-  $("#pause1 i").hide();
-
+    }else{
+      pausemusic(x);
+    }
 });
 
 //---------------------------------------
 
 //---------------------------------------
 // play button 2 
-$(".playbtn2 i ").click(function(){
+ $('.playbtn2 i ,#pause2 i ').click(function(){
+  $('.playbtn2 i ,#pause2 i').toggle();
+  if($("#pause2 i ").is(":visible")){
+    pausemusic(x,z); 
+    playmusic(y);
+    showText(txt2);
+    showImage(image2);
 
-  $(".playbtn2 i ").hide();
-  $("#pause2 i").show();
-
-  $( "#infotext" ).empty();
-  $( "#infotext" ).append(txt2);
-
-  image1.remove();
-  image3.remove();
-  src.append(image2);
-
-  y.play() ;
-  x.pause();
-  z.pause();
-
+  }else{
+    pausemusic(y);
+  }
 });
-$("#pause2 i ").click(function(){
-  y.pause() ;
-  $(".playbtn2 i ").show();
-  $("#pause2 i").hide();
-  });
 //------------------------------------------------
 
 //------------------------------------------------
 //play button 3 
- $(".playbtn3 i ").click(function(){
+$('.playbtn3 i ,#pause3 i ').click(function(){
+  $('.playbtn3 i ,#pause3 i').toggle();
+  if($("#pause3 i ").is(":visible")){
+    pausemusic(y,x); 
+    playmusic(z);
+    showText(txt3);
+    showImage(image3);
 
-  $(".playbtn3 i ").hide();
-  $("#pause3 i").show();
-
-  $( "#infotext" ).empty();
-  $( "#infotext" ).append(txt3);
-  
-  image1.remove();
-  image2.remove();
-  src.append(image3);
-
-  x.pause();
-  y.pause();
-  z.play();
-
-  $("#pause3 i ").click(function(){
-    z.pause() ;
-    $(".playbtn3 i ").show();
-    $("#pause3 i").hide();
-
-    });
+  }else{
+    pausemusic(z);
+  }
 });
 //---------------------------------------------------------
+//_______________jämsamma metoder ----------------------------------_
 
+function playmusic(startplay){
+  startplay.play();
+}
+function pausemusic(_audio){
+  _audio.pause();
+  }
+
+function showText(_text){
+  $( "#infotext" ).empty();
+  $( "#infotext").append(_text);
+}
+
+function showImage(_image){
+  src.append(_image);
+}
 
 
