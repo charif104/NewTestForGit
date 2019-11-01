@@ -1,6 +1,6 @@
  
 
- //let x = document.getElementById("Audio1");
+  // create the audio
   let x= document.createElement("AUDIO");
   x.setAttribute("src","media/bac1.mp3");
 
@@ -9,30 +9,34 @@
 
   let z= document.createElement("AUDIO");
   z.setAttribute("src","media/eminem.mp3");
-
+//----------------------------------------------------------
  
-
+//----------------------------------------------------------
+ // create the image
  let image1 = document.createElement("img");
  image1.setAttribute("src","cover/backstreet.jpeg");
-    //it works with two method    //image1.src= "cover/backstreet.jpeg" ; 
  image1.style.height= '20 vh';
  image1.style.width='15vw';
 
  let image2 = document.createElement("img");
  image2.src= "cover/Beatles.jpg"  ;
-
  let image3 = document.createElement("img");
  image3.src= "cover/eminem.jpg" ;
 
  let src = document.getElementById("boxbild");
   src.append(image1) ;
+  //-------------------------------------------------------
   
-   
+  //-------------------------------------------------------
+  // create the text
   let txt1 = $('#text1').text();
   let txt2 = $('#text2').text();
   let txt3 = $('#text3').text();
    $( "#infotext" ).append(txt1);
+//-----------------------------------------------------------
 
+//----------------------------------------------------------
+  // show and hide beween play and pause button
 
  if( $(".playbtn1 i ").is(":visible")){
   $("#pause1 i").hide();
@@ -48,8 +52,6 @@
   $("#pausebtn i").hide();
  }
 
-
-
 //---------------------------------
  // play button 1 for the first singer (old code )
 
@@ -60,6 +62,7 @@
       pausemusic(z); 
       playmusic(x);
       showText(txt1);
+      removeImage();
       showImage(image1);
 
     }else{
@@ -77,7 +80,9 @@
     pausemusic(x,z); 
     playmusic(y);
     showText(txt2);
+    removeImage();
     showImage(image2);
+    
 
   }else{
     pausemusic(y);
@@ -93,6 +98,7 @@ $('.playbtn3 i ,#pause3 i ').click(function(){
     pausemusic(y,x); 
     playmusic(z);
     showText(txt3);
+    removeImage();
     showImage(image3);
 
   }else{
@@ -117,5 +123,7 @@ function showText(_text){
 function showImage(_image){
   src.append(_image);
 }
-
+function removeImage(){
+  src.innerHTML= ("");
+}
 
